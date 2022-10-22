@@ -26,3 +26,8 @@ jobs:
       - run: npm ci
       - run: npm run build --if-present
       - run: npm test
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Update build resources [github-action]
+          commit_user_name: kf-liu[github-actions[bot]]
+          commit_user_email: kf_ch_liu@163.com
