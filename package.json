@@ -1,0 +1,40 @@
+{
+  "name": "date-box",
+  "version": "0.1.0",
+  "description": "🗓 Update a pinned gist to contain your anniversaries and countdown days (or hours)",
+  "author": "kf-liu <kf_ch_liu@163.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev:test": "npm run build && npm test",
+    "build": "babel src -d dist",
+    "test": "node test.js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged && npm run dev:test"
+    }
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.19.3",
+    "@babel/core": "^7.19.6",
+    "@babel/preset-env": "^7.19.4",
+    "husky": "^8.0.1",
+    "prettier": "^2.7.1",
+    "pretty-quick": "^3.1.3"
+  },
+  "dependencies": {
+    "@octokit/rest": "16.36.0",
+    "cron-parser": "^4.6.0",
+    "moment": "^2.29.4"
+  },
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kf-liu/date-box.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/kf-liu/date-box/issues"
+  },
+  "homepage": "https://github.com/kf-liu/date-box#readme"
+}

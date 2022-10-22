@@ -1,0 +1,20 @@
+name: Update gist with Date
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  # Manual triggers with workflow_dispatch
+  workflow_dispatch:
+
+jobs:
+  update-gist:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Update gist
+        uses: kf-liu/date-box@master
+        env:
+          TYPE: DAY
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GIST_ID: 7de2a55824ec5e8a78ebc3c57e4ca82b
+          RECORDS: "0 0 * * 0,6 _ WEEKEND | 0 0 10 * * _ PAYDAY | 2022-10-22 _ CREATE THIS REPO | 0 0 28 12 * _ MY BIRTHDAY"
