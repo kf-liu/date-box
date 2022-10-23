@@ -9,14 +9,14 @@ const {
 } = process.env;
 
 try {
-    if (!GH_TOKEN) {
+    if (!githubToken) {
         throw new Error("GH_TOKEN is not provided.");
     }
-    if (!GIST_ID) {
+    if (!gistId) {
         throw new Error("GIST_ID is not provided.");
     }
-    if (!USERNAME) {
-        throw new Error("USERNAME is not provided.");
+    if (!records) {
+        throw new Error("RECORDS is not provided.");
     }
 } catch (e) {
     console.error(e);
