@@ -6,6 +6,10 @@
 
 [![Node.js CI](https://github.com/kf-liu/date-box/actions/workflows/node.yml/badge.svg)](https://github.com/kf-liu/date-box/actions/workflows/node.yml)
 [![Update gist with Date](https://github.com/kf-liu/date-box/actions/workflows/schedule.yml/badge.svg)](https://github.com/kf-liu/date-box/actions/workflows/schedule.yml)
+![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/kf-liu/date-box?display_name=tag&sort=semver)
+![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/kf-liu/date-box?display_name=tag&include_prereleases&sort=semver)
+![GitHub commits since latest release (by SemVer including pre-releases)](https://img.shields.io/github/commits-since/kf-liu/date-box/latest?include_prereleases&sort=semver)
+![GitHub](https://img.shields.io/github/license/kf-liu/date-box)
 
 ---
 
