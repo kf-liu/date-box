@@ -5,22 +5,14 @@
   "author": "kf-liu <kf_ch_liu@163.com>",
   "license": "MIT",
   "scripts": {
-    "dev:test": "npm run build && npm test",
-    "build": "babel src -d dist",
-    "test": "node test.js"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged && npm run dev:test"
-    }
+    "build": "ncc build src -o dist --minify",
+    "test": "babel src -d lib && node test.js"
   },
   "devDependencies": {
+    "@vercel/ncc": "^0.34.0",
     "@babel/cli": "^7.19.3",
     "@babel/core": "^7.19.6",
-    "@babel/preset-env": "^7.19.4",
-    "husky": "^8.0.1",
-    "prettier": "^2.7.1",
-    "pretty-quick": "^3.1.3"
+    "@babel/preset-env": "^7.19.4"
   },
   "dependencies": {
     "@octokit/rest": "16.36.0",

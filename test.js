@@ -1,6 +1,6 @@
 const assert = require('assert');
 const moment = require('moment');
-const { counter, default: counters } = require('./dist/counters');
+const { counter, default: counters } = require('./lib/counters');
 
 const FORMAT = 'YYYY-MM-DD';
 const today = moment();

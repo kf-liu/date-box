@@ -4,6 +4,9 @@
   <p align="center">🗓 Update a pinned gist to contain your anniversaries and countdown days (or hours)</p>
 </p>
 
+[![Node.js CI](https://github.com/kf-liu/date-box/actions/workflows/node.yml/badge.svg)](https://github.com/kf-liu/date-box/actions/workflows/node.yml)
+[![Update gist with Date](https://github.com/kf-liu/date-box/actions/workflows/schedule.yml/badge.svg)](https://github.com/kf-liu/date-box/actions/workflows/schedule.yml)
+
 ---
 
 > 📌 This project is inspired by [waka-box](https://github.com/matchai/waka-box) and [lang-box](https://github.com/inokawa/lang-box). 
