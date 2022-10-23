@@ -64,7 +64,7 @@ One `record` consists of one `time` and one `event`, and thay are connected by `
 e.g.
 - `0 0 * * 0,6 _ WEEKEND`
 - `0 0 10 * * _ PAYDAY`
-- `2022-10-22 _ CREATE THIS REPO`
+- `2022-10-22 _ CREATE DATE-BOX`
 - `0 0 28 12 * _ MY BIRTHDAY`
 
 Of course, `event` is not required, you can just give the time. (` _ ` is not required as well). 
@@ -73,7 +73,7 @@ Of course, `event` is not required, you can just give the time. (` _ ` is not re
 This is the final format of records: Connect a series of records with ` | ` (a space, an vertical bar, and a space).
 
 e.g.
-`0 0 * * 0,6 _ WEEKEND | 0 0 10 * * _ PAYDAY | 2022-10-22 _ CREATE THIS REPO | 0 0 28 12 * _ MY BIRTHDAY`.
+`0 0 * * 0,6 _ WEEKEND | 0 0 10 * * _ PAYDAY | 2022-10-22 _ CREATE DATE-BOX | 0 0 28 12 * _ MY BIRTHDAY`.
 
 ## Ideas to be continue
 - [ ] The countdown to the next holiday.
