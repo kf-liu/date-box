@@ -18,5 +18,5 @@ export default (records) => {
     return newContents
         ?.map((record) => getContent(record, { maxLength }))
         ?.join('\n')
-        + '\n🤖 by [date-box](https://github.com/marketplace/actions/date-box)';
+        + '\n🤖 by [date-box](https://github.com/kf-liu/date-box)';
 };
