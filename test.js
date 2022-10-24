@@ -1,6 +1,7 @@
 const assert = require('assert');
 const moment = require('moment');
-const { counter, default: counters } = require('./lib/counters');
+const { counter } = require('./lib/counters');
+const { default: contents } = require('./lib/contents')
 
 const FORMAT = 'YYYY-MM-DD';
 const today = moment();
@@ -33,16 +34,17 @@ for (let i = 0; i <= 7; i += 1) {
 };
 
 
-// counters
+// contents
+const ending = '\n🤖 by [date-box](https://github.com/marketplace/actions/date-box)';
 const TODAY_INPUT = `${today.clone().format(FORMAT)} _ Today`;
 const TODAY_OUTPUT = '🎁🎁🎁 Today is Today';
 const YESTERDAY_INPUT = `${yesterday.clone().format(FORMAT)} _ Yesterday`;
-const YESTERDAY_OUTPT = '🗓 1 day after Yesterday';
+const YESTERDAY_OUTPT = '🗓 1 day  after  Yesterday';
 const TOMORROW_INPUT = `${tomorrow.clone().format(FORMAT)} _ Tomorrow`;
-const TOMORROW_OUTPT = '🗓 1 day before Tomorrow';
-assert.equal(counters(TODAY_INPUT), TODAY_OUTPUT);
-assert.equal(counters(YESTERDAY_INPUT), YESTERDAY_OUTPT);
-assert.equal(counters(TOMORROW_INPUT), TOMORROW_OUTPT);
-assert.equal(counters(`${TODAY_INPUT} | ${TODAY_INPUT}`), `${TODAY_OUTPUT}\n${TODAY_OUTPUT}`);
-assert.equal(counters(`${TODAY_INPUT} | ${YESTERDAY_INPUT} | ${TOMORROW_INPUT}`), `${TODAY_OUTPUT}\n${YESTERDAY_OUTPT}\n${TOMORROW_OUTPT}`);
-assert.equal(counters(`${YESTERDAY_INPUT} | ${TODAY_INPUT} | ${TOMORROW_INPUT}`), `${TODAY_OUTPUT}\n${YESTERDAY_OUTPT}\n${TOMORROW_OUTPT}`);
+const TOMORROW_OUTPT = '🗓 1 day  before Tomorrow';
+assert.equal(contents(TODAY_INPUT), TODAY_OUTPUT + ending);
+assert.equal(contents(YESTERDAY_INPUT), YESTERDAY_OUTPT + ending);
+assert.equal(contents(TOMORROW_INPUT), TOMORROW_OUTPT + ending);
+assert.equal(contents(`${TODAY_INPUT} | ${TODAY_INPUT}`), `${TODAY_OUTPUT}\n${TODAY_OUTPUT}` + ending);
+assert.equal(contents(`${TODAY_INPUT} | ${YESTERDAY_INPUT} | ${TOMORROW_INPUT}`), `${TODAY_OUTPUT}\n${YESTERDAY_OUTPT}\n${TOMORROW_OUTPT}` + ending);
+assert.equal(contents(`${YESTERDAY_INPUT} | ${TODAY_INPUT} | ${TOMORROW_INPUT}`), `${TODAY_OUTPUT}\n${YESTERDAY_OUTPT}\n${TOMORROW_OUTPT}` + ending);

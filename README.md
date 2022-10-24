@@ -22,17 +22,33 @@
 1. Create a new public GitHub Gist (https://gist.github.com)
 2. Create a token with the `gist` scope and **copy it**. (https://github.com/settings/tokens/new)
 
+### Github action only
+You can use it directly in github action of an existing repository without cloning a new repository. Here's how to use it in a `.yml` file in `.github/workflows` directory.
+```
+steps:
+  - uses: actions/checkout@master
+  - name: Update gist
+    uses: kf-liu/date-box@master
+    env:
+      TYPE: DAY  
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      GIST_ID: 7de2a55824ec5e8a78ebc3c57e4ca82b
+      RECORDS: "0 0 * * 0,6 _ WEEKEND | 0 0 10 * * _PAYDAY | 2022-10-22 _ INIT DATE-BOX | 0 0 28 12 * _ MY BIRTHDAY"
+```
+`env` is configured in the same way as below (Project setup).
+
 ### Project setup
+You can also use and modify it in a new repository. Here's how to use it.
 
 1. Fork this repo
 1. Edit the [environment variable](https://github.com/kf-liu/date-box/blob/master/.github/workflows/schedule.yml#L18-L20) in `.github/workflows/schedule.yml`:
 
    - **GIST_ID:** The ID portion from your gist url: `https://gist.github.com/kf-liu/`**`7de2a55824ec5e8a78ebc3c57e4ca82b`**.
+   - **RECORDS:** Your anniversary and countdown days. (The format is below. (Records format))
 
 1. Go to the repo **Settings > Secrets**
 1. Add the following environment variables:
    - **GH_TOKEN:** The GitHub token generated above.
-   - **RECORDS:** Your anniversary and countdown days. (The format is below.)
 
 ## Records format
 ```

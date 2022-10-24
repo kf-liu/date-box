@@ -21,31 +21,28 @@ export const counter = (record) => {
     const [diff, event] = parseRecord(record);
     if (diff === 0) {
         return {
-            diff: diff,
+            diff,
             absDiff: diff,
             negative: false,
-            content: `🎁🎁🎁 Today is ${event}`,
+            event,
         };
     }
     if (!diff) return false;
     const absDiff = Math.abs(diff);
     const negative = Boolean(diff < 0);
     return {
-        diff: diff,
+        diff,
         absDiff,
         negative,
-        content: `🗓 ${Math.abs(diff)} ${absDiff === 1 ? 'day' : 'days'} ${negative ? 'after' : 'before'} ${event}`,
+        event,
     };
 };
 
 export default (records) => {
     const recordsArr = records?.split(RECORDS_SEPARATOR);
-    if (!recordsArr?.length) return '';
-    const contents = recordsArr
+    if (!recordsArr?.length) return [];
+    return recordsArr
         ?.map((record) => counter(record))
         ?.filter(Boolean)
         ?.sort((a, b) => a.absDiff - b.absDiff)
-        ?.map((record) => record.content || '🎁')
-        ?.join('\n');
-    return contents;
 };

@@ -1,5 +1,5 @@
 import Octokit from '@octokit/rest';
-import counters from './counters';
+import contents from './contents';
 
 const {
     // TYPE: type,
@@ -32,7 +32,7 @@ export const main = async () => {
     } catch (error) {
         console.error(`Unable to get gist\n${error}`);
     }
-    const newContents = counters(records);
+    const newContents = contents(records);
     try {
         // Get original filename to update that same file
         const filename = Object.keys(gist.data.files)[0];
@@ -40,7 +40,7 @@ export const main = async () => {
             gist_id: gistId,
             files: {
                 [filename]: {
-                    filename: `🗓 my date box`,
+                    filename: `🗓 my date box .md`,
                     content: newContents,
                 }
             }
