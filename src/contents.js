@@ -17,6 +17,6 @@ export default (records) => {
     const maxLength = newContents[newContents?.length - 1]?.absDiff?.toString()?.length || 0;
     return newContents
         ?.map((record) => getContent(record, { maxLength }))
-        ?.join('\n\n')
-        + '\n\n🤖 by [date-box](https://github.com/marketplace/actions/date-box)';
+        ?.join('\n')
+        + '\n🤖 by [date-box](https://github.com/marketplace/actions/date-box)';
 };
