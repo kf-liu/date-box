@@ -1,7 +1,7 @@
 const assert = require('assert');
 const moment = require('moment');
 const { counter } = require('./lib/counters');
-const { default: contents } = require('./lib/contents')
+const { default: contents, ENDING } = require('./lib/contents')
 
 const FORMAT = 'YYYY-MM-DD';
 const today = moment();
@@ -35,7 +35,7 @@ for (let i = 0; i <= 7; i += 1) {
 
 
 // contents
-const ending = '🤖 by [date-box](https://github.com/marketplace/actions/date-box)';
+const ending = ENDING;
 const TODAY_INPUT = `${today.clone().format(FORMAT)} _ TODAY`;
 const TODAY_OUTPUT = '🎁🎁🎁 Today is TODAY\n';
 const YESTERDAY_INPUT = `${yesterday.clone().format(FORMAT)} _ YESTERDAY`;
