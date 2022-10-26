@@ -17,6 +17,8 @@
 > 
 > 📌 For more pinned-gist projects like this one, check out: https://github.com/matchai/awesome-pinned-gists.
 
+Example gist: https://gist.github.com/kf-liu/7de2a55824ec5e8a78ebc3c57e4ca82b
+
 ## Setup
 ### Prep work
 1. Create a new public GitHub Gist (https://gist.github.com)
@@ -33,7 +35,7 @@ steps:
       TYPE: DAY  
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
       GIST_ID: 7de2a55824ec5e8a78ebc3c57e4ca82b
-      RECORDS: "0 0 * * 0,6 _ WEEKEND | 0 0 10 * * _PAYDAY | 2022-10-22 _ INIT DATE-BOX | 0 0 28 12 * _ MY BIRTHDAY"
+      RECORDS: "0 * * * 0,6 _ WEEKEND | 0 0 10 * * _PAYDAY | 2022-10-22 _ INIT DATE-BOX | 0 * 28 12 * _ MY BIRTHDAY"
 ```
 `env` is configured in the same way as below (Project setup).
 
@@ -68,8 +70,10 @@ Currently, two formats are supported: `cron` (for loop event) and `moment` (for 
 
 - corn: to schedule a loop event to countdown at specific UTC times using [POSIX cron syntax](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_07). 
   - e.g. 
-    - `0 0 1 * *`
-    - `0 0 * * 0`
+    - `0 0 1 * *` For the first of every month
+    - `0 0 l * *` For the last of every month
+    - `0 0 * * 0` For every Sunday (00:00 am)
+    - `0 * * * 0` For every Sunday (all day long)
 - moment: to schedule a single event to countdown using [moment](https://momentjs.com/docs/#/parsing/string/). 
   - e.g. 
     - `2022-10-22`
@@ -78,10 +82,10 @@ Currently, two formats are supported: `cron` (for loop event) and `moment` (for 
 One `record` consists of one `time` and one `event`, and thay are connected by ` _ ` (a space, an underscore, and a space). Each record will be displayed as a line in your gist.
 
 e.g.
-- `0 0 * * 0,6 _ WEEKEND`
+- `0 * * * 0,6 _ WEEKEND`
 - `0 0 10 * * _ PAYDAY`
 - `2022-10-22 _ CREATE DATE-BOX`
-- `0 0 28 12 * _ MY BIRTHDAY`
+- `0 * 28 12 * _ MY BIRTHDAY`
 
 Of course, `event` is not required, you can just give the time. (` _ ` is not required as well). 
 
@@ -89,7 +93,7 @@ Of course, `event` is not required, you can just give the time. (` _ ` is not re
 This is the final format of records: Connect a series of records with ` | ` (a space, an vertical bar, and a space).
 
 e.g.
-`0 0 * * 0,6 _ WEEKEND | 0 0 10 * * _ PAYDAY | 2022-10-22 _ CREATE DATE-BOX | 0 0 28 12 * _ MY BIRTHDAY`.
+`0 * * * 0,6 _ WEEKEND | 0 0 10 * * _ PAYDAY | 2022-10-22 _ CREATE DATE-BOX | 0 * 28 12 * _ MY BIRTHDAY`.
 
 ## Ideas to be continue
 - [ ] The countdown to the next holiday.
